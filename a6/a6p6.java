@@ -20,7 +20,7 @@ public class a6p6 {
         for (int i = 0; i < n; i++)
             forbidden[Integer.parseInt(br.readLine().trim())] = true;
 
-        // BFS
+        
         Queue<int[]> q = new LinkedList<>();
         q.add(new int[]{S, 0});
         visited[S] = true;
@@ -31,18 +31,18 @@ public class a6p6 {
 
             if (combo == C) { System.out.println(dist); return; }
 
-            // extract 4 digits
+            
             int[] d = new int[4];
             d[0] = combo / 1000;
             d[1] = (combo / 100) % 10;
             d[2] = (combo / 10)  % 10;
             d[3] = combo % 10;
 
-            // try all 8 neighbors (4 wheels x 2 directions)
+           
             for (int i = 0; i < 4; i++) {
                 int original = d[i];
 
-                // try +1 and -1 on wheel i
+               
                 int[] turns = {(original + 1) % 10, (original + 9) % 10};
 
                 for (int t = 0; t < 2; t++) {
@@ -53,7 +53,7 @@ public class a6p6 {
                         q.add(new int[]{next, dist + 1});
                     }
                 }
-                d[i] = original; // restore
+                d[i] = original; 
             }
         }
 
